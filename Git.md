@@ -110,6 +110,8 @@
    $ git remote add origin __http://github.com__
    ```
 
+   > github에 Repository 만들고 나오는 두줄 복사해서 바로 넣는 그거.
+
    * 로컬 저장소에 최초에 한번만 등록하면 된다.
    * `원격 저장소(remote)` 를 `origin` 이라는 이름으로 정해진 url을 `등록(add)` 하는 것이다.
    * 어떤 저장소를 가졌는지(?)는 `git remote -v` 로 확인
