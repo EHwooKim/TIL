@@ -20,17 +20,17 @@ for code in code_list:
     api_url = f'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key={key}&movieCd={movieCd}'
 
     response = requests.get(api_url).json()
-
+    movoe_info = response['movieInfoResult']['movieInfo']
     result[movieCd] = {
         '영화코드' : movieCd,
-        '영화이름' : response['movieInfoResult']['movieInfo']['movieNm'],
-        '영화이름(영문)' : response['movieInfoResult']['movieInfo']['movieNmEn'],
-        '영화이름(원문)' :response['movieInfoResult']['movieInfo']['movieNmOg'] if response['movieInfoResult']['movieInfo']['movieNmOg'] else None,
-        '관람등급' : response['movieInfoResult']['movieInfo']['audits'][0]['watchGradeNm'] if response['movieInfoResult']['movieInfo']['audits'] else None ,
-        '개봉연도' : response['movieInfoResult']['movieInfo']['openDt'],
-        '상영시간' : response['movieInfoResult']['movieInfo']['showTm'],
-        '장르' : response['movieInfoResult']['movieInfo']['genres'][0]['genreNm'] if response['movieInfoResult']['movieInfo']['genres'] else None,
-        '감독' : response['movieInfoResult']['movieInfo']['directors'][0]['peopleNm'] if response['movieInfoResult']['movieInfo']['directors'] else None
+        '영화이름' : movoe_info['movieNm'],
+        '영화이름(영문)' : movoe_info['movieNmEn'],
+        '영화이름(원문)' :movoe_info['movieNmOg'] if movoe_info['movieNmOg'] else None,
+        '관람등급' : movoe_info['audits'][0]['watchGradeNm'] if movoe_info['audits'] else None ,
+        '개봉연도' : movoe_info['openDt'],
+        '상영시간' : movoe_info['showTm'],
+        '장르' : movoe_info['genres'][0]['genreNm'] if movoe_info['genres'] else None,
+        '감독' : movoe_info['directors'][0]['peopleNm'] if movoe_info['directors'] else None
     }
 # 적어봅시다.
 with open('movie.csv','w',encoding='utf-8') as f:

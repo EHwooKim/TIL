@@ -18,11 +18,12 @@ for name in name_list:
 
     if name == None:
         continue
+    people_list = response['peopleListResult']['peopleList']     
     result[name] = {
-                    '영화인 코드': response['peopleListResult']['peopleList'][0]['peopleCd'] if response['peopleListResult']['peopleList'] else None,
-                    '영화인명': response['peopleListResult']['peopleList'][0]['peopleNm'] if response['peopleListResult']['peopleList'] else None,
-                    '분야': response['peopleListResult']['peopleList'][0]['repRoleNm'] if response['peopleListResult']['peopleList'] else None,
-                    '필모리스트': response['peopleListResult']['peopleList'][0]['filmoNames'] if response['peopleListResult']['peopleList'] else None
+                    '영화인 코드': people_list[0]['peopleCd'] if people_list else None,
+                    '영화인명': people_list[0]['peopleNm'] if people_list else None,
+                    '분야': people_list[0]['repRoleNm'] if people_list else None,
+                    '필모리스트': people_list[0]['filmoNames'] if people_list else None
                     }
 
     
