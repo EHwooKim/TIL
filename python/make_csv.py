@@ -28,17 +28,17 @@ with open('a.csv', 'w', encoding = 'utf-8') as f:
 # # 이렇게도 할 수 있지만, 좀 더 쉽게 해주는게 있는데! 그게바로 밑에꺼
 #------------------------------------------------------------------------------
 
-# import csv
-# students = {
-#     'anything': {
-#         '순번':'01',
-#         '이름':'김성훈'
-#     },
-#     'anything2': {
-#         '순번':'02',
-#         '이름':'김은정'
-#     }
-# }
+import csv
+students = {
+    'anything': {
+        '순번':'01',
+        '이름':'김성훈'
+    },
+    'anything2': {
+        '순번':'02',
+        '이름':'김은정'
+    }
+}
 
 # with open('b.csv','w',encoding='utf-8') as f:
 #     csv_writer = csv.writer(f)
