@@ -333,6 +333,25 @@ print(a.swapcase())
   # 기둥 뒤에 공간 있어요
   caffe[len(caffe):] >>[]
   ```
+  
+  * append역시 return값은 None이기때문에!
+  
+    ```python
+    def asd(x):
+        y=[]
+        return y.append(x)
+    
+    print(asd('x'))
+    #의 결과는
+    ```
+  
+    >
+    >
+    >None 이다!
+    >
+    >append된 리스트가 반환되지 않는다.!
+
+
 
 #### extend 유의점
 
@@ -544,6 +563,7 @@ print(''.join(_______))
   a.update('토마토', '딸기')
   print(a)
   
+  ```
 # 결과는~?
   ```
   
@@ -566,7 +586,7 @@ print(a)
   ```
 
   > 위의 방법이  올바른 방법입니다.
-  
+
   ```python
   a = {"사과", "바나나", "수박"}
   a.update(('토마토'), ('딸기')) 
@@ -574,7 +594,7 @@ print(a)
   
 #그럼 이건 될까?
   ```
-  
+
   > 안된다고 합니다..
   >
   > a.update(('토마토',), ('딸기',))  이렇게 해야합니다.
@@ -614,19 +634,19 @@ print(a)
 
 ### 13. OOP
 
-그냥 필기 전체를 보도록.
+#### repr, str
 
+* `repr` : 객체의 모습
 
+* `str` : print() 했을 때 보여지는 보습
 
+* `repr`만 정의되면 객체, print 모두 바뀜.
 
+* `str`만 정의되면 print값만 바뀜
 
+#### self
 
-
-​
-
-
-
-
+* self 잘 쓰자..! 메서드 안에서 속성 쓸 때도 self.name처럼 써야한다
 
 
 
@@ -661,6 +681,36 @@ print(a[:-3])
 >[0, 1, 2, 3, 4]  
 >
 >슬라이싱 할 때 해당 인덱스 미만까지인거는 당연히 동일하다
+
+
+
+
+
+### 모르겠다고합니다.
+
+```python
+class Person:
+    name = '홍길동'
+    bag = []
+
+    def put_bag(self,stuff):
+        Person.bag.append(stuff)
+
+    
+iu = Person()
+iu.name = '이지은'      # = 으로 이름을 바꾸면 tw에 영향이 없는데
+iu.put_bag('지갑')      # .append()로 값을 추가하니까 tw한테까지 영향이 있네..?
+print(iu.name) 
+print(iu.bag)
+
+# iu.bag = ['지갑']
+
+tw = Person()
+print(tw.name)
+print(tw.bag)
+```
+
+
 
 
 
