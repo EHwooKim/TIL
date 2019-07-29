@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>서브웨이 주문하기</h1>
+  <p>주문서를 작성하여 주십시오.</p>
+  <form action="#" method="GET">
+    <!-- 폼 내용을 보낼 곳(action)을 반드시 지정해줘야한다.
+      어떤 방식으로 보낼지(method - GET/POST)
+    -->
+    <label for="name">이름 :</label>  
+    <!-- label을 작성해주면, for에 특정 input의 id를 작성하면,
+      해당input에 포커싱이 된다.
+    -->
+    <input id="name" type="text" name="name" placeholder="이름을 입력해주세요."> <br>
+    <label for="date">날짜 :</label>
+    <input id="date" type="date" name="date"> <br>
+    <h2>1. 샌드위치 선택</h2>
+    <!-- radio버튼은 동일한 name 속성값을 가지고 있는 것 중에 하나만 선택 가능. -->
+    <input type="radio" name="menu" value="0"> 에그 마요 <br>   
+    <input type="radio" name="menu" value="1"> 이탈리안 비엠티 <br>
+    <input type="radio" name="menu" value="2"> 터키 베이컨 아보카도 <br>
+    <hr>
+    <h2>2. 사이즈 선택</h2>
+    <!-- number type은 숫자의 범위를 지정 가능 -->
+    <input type="number" name="size" min="15" max="30" step="15">
+    <hr>
+    <h2>3. 빵</h2>
+    <!-- select + option : dropdown 메뉴 생성 가능 
+      select 태그에 name을 지정하고,
+      option에 value를 지정한다.
+    -->
+    <select name="bread">
+      <option value="0">허니 오트</option>
+      <option value="1" selected>플랫 브레드</option>  <!-- selected : 하면 기본값으로 이게 올라가는 느낌-->
+      <option value="2" disabled>하티 이탈리안</option>  <!-- disabled : 선택불가능 -->
+    </select>
+    <hr>
+    <h2>4. 야채/소스</h2>
+    <!-- check box -->
+    <input type="checkbox" name="option" value="0">토마토<br>
+    <input type="checkbox" name="option" value="1">오이<br>
+    <input type="checkbox" name="option" value="2">할라피뇨<br>
+    <input type="checkbox" name="option" value="3">핫 칠리<br>
+    <input type="checkbox" name="option" value="4">베이컨<br>
+    <!-- submit 버튼을 누르면 해당 폼 데이터를 action으로 전송 -->
+    <input type="submit"  value="제출!">
+  </form>
+</body>
+</html>
