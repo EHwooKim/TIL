@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>디스플레이02</title>
+  <link rel="stylesheet" href="06_style.css">
+</head>
+<body>
+  <!-- block -->
+  <div>block</div>
+  <div>block</div>
+  <!--
+    inline 
+    내용없이 존재할 수 없음.
+    (width, height 적용 X)
+   -->
+  <div class="inline">안녕하세요</div>
+  <div class="inline">inline은 content 너비만큼 차지하는 것이랍니다! <br> 그렇기 때문에 div에 높이,너비 지정했는데도 요모양으로 나옵니다.</div> <br>
+  <!--
+    inline-block 의 특징
+    block 속성 (width, height)을 가지면서
+     + inline 속성 (우측 margin이 사라짐)  mlauto 같은거 해도 안먹히겠지? margin이 없으니까!!
+  -->
+  <div class="inline-block">i-b</div>
+  <div class="inline-block">i-b</div>
+  <!-- 
+    div+div.none+div.hidden+div
+   -->
+  <div>div</div>
+  <div class="none">none</div>    <!-- 공간 자체가 사라지는 none -->
+  <div class="hidden">hidden</div>  <!-- 공간은 할당하지만 안보이는 hidden -->
+  <div>div</div>
+</body>
+</html>

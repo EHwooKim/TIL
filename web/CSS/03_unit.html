@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>유닛!</title>
+  <link rel="stylesheet" href="03_style.css">
+</head>
+<body>
+  <h1>단위를 알아봅시다.</h1>
+  <!-- rem 
+      root 요소의 배수
+      html 기본 : 16px (브라우저 기본)
+      2rem -> 32px (16*2)
+      ol : 2rem
+      li : 2rem
+   -->
+  <ol>
+    <li>2rem</li>
+  </ol>
+  <!-- em
+    상위 요소의 배수 (상속에 영향)
+    html : 16px
+    ul : 2em -> 32px
+    li : 원래 ul 밑에 있어서 32px인데
+          -> 2em 적용 시켰으니 32px * 2 해서 64px이 된다.
+   -->
+  <ul>
+    <li>2em</li>
+    <p>이건 32px이겠지</p>
+  </ul>
+  <!-- vw vh // 화면 크기를 바꿔봐 그에 따라 크기가 바뀌네-->
+  <span class="vw">10vw</span>
+  <span class="vh">10vh</span>
+  <div class="div-vw"></div>
+  <div class="div-vh"></div>
+  <!-- vmin, vmax -->
+  <div class="div-vmin">10vmin</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+/* ol이랑 ol밑 li는 */
+ol, ol li {
+  font-size: 2rem;
+}
+
+ul, ul li {
+  font-size: 2em;
+}
+
+.vw {
+  font-size: 10vw;
+}
+
+.vh {
+  font-size: 10vh;
+}
+
+.div-vw {
+  width: 10vw;
+  height: 10vw;
+  background-color: rgb(0, 183, 255);     /* rgb : red.green.blue의 약자 */
+}
+
+.div-vh {
+  width: 10vh;
+  height: 10vh;
+  background-color: rgba(255, 0, 0, 0.5);   /* rgba : 투명도 추가 */
+
+}
+
+.div-vmin {
+  width: 10vmin;
+  height: 10vmin;
+  background-color: #00ff00;
+}

@@ -1,0 +1,23 @@
+div {
+  width: 100px;
+  height: 100px;
+  background-color: #aaff22;
+  text-align: center;    /* div안의 글자 중간으루 좌우 정렬은 이래 쉬워*/
+  line-height: 100px;    /* 글자폭(?)을 늘려서 상하정렬인적 하기*/
+} 
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.mx-auto {
+  margin: 0 auto;  /*r shorthand 쓴거지 생각해봐 */
+}
+
+.red {
+  color: red;
+}
