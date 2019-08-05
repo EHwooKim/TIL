@@ -26,11 +26,42 @@ activate.psl # power shell용
 
 ## 2. 가상환경 실행 및 종료
 
+### 1. 실행
 ```bash
 $ sourse ~/특정위치/버전명(혹은 가상환경명)/activate
+(버전명 혹은 가상환경명)
 ```
-
+### 2. 종료
 ```bash
 $ deactivate
 ```
 
+## Tip
+
+`.bashrc` 를 활용하면, 조금 더 편리하게 가상환경을 실행할 수 있다. 
+
+`.bashrc` 는 git bash를 켜면 자동으로 실행되는 스크립트이다. 윈도우에서 시작프로그램이랑 유사하다.
+
+```bash
+$ vi ~/.bashrc
+```
+
+vim을 통해서 수정이 가능하다. 편집 모드는 `i` 저장 및 종료는 `esc + :wq` 이다. 
+
+작성을 완료한 이후에는 새로 git bash 창을 열거나 아래의 명령어를 입력한다.
+
+```bash
+$ source ~/.bashrc
+```
+
+> 그냥 새로켜는게 편하겠다.
+
+* 수업용 스크립트 파일
+
+```bash
+# ~/.bashrc
+alias venv="source ~/python-virtualenv/3.7.4/Scripts/activate"
+venv  (bash에 들어가서 venv를 입력해야 3.7.4버전 사용가능해서 bash켜면 자동으로 입력되게 쓴거)
+```
+
+> `~` 은  home의 위치이다.
