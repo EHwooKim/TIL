@@ -1,0 +1,26 @@
+/* 이렇게 media쿼리를 쓰면 반응형 웹 만들 수 있다. */
+
+/* extra small 
+  smartphone size! */
+@media (min-width:576px) {
+  .col-sm-1 {
+    width: 0.083333;
+  }
+}
+/* small
+  Galaxy note 10 (화면이 큰 스마트폰) */
+@media (min-width:768px) {
+  .col-md-1
+}
+/* medium
+  Galaxy tablet */
+ @media (min-width:992px) {
+
+}
+/* large
+  desktop */
+  @media (min-width:1200px) {
+
+  }
+/* extra large
+large desktop */
