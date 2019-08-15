@@ -1,0 +1,29 @@
+.card_container {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 150px;
+
+}
+
+.card  {
+  margin:10px;
+  height: 200px;
+  width: 200px;
+  border: solid 1px black;
+  border-radius: 10%;
+  line-height: 180px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.card:hover{
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  z-index: 1000;
+  font-size: 3rem;
+}
