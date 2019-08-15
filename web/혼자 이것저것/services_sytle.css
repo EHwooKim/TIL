@@ -1,0 +1,91 @@
+.sv-header {
+  height: 60px;
+  width: 100%;
+  display: flex; 
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  padding: 0 20px;
+  line-height: 60px;
+  background-color: white;
+  z-index: 1000;
+}
+.sv-content {
+  display: block;
+  height: 1000px;
+  margin-top: 60px; 
+}
+.sv-aside {
+  float: left;
+  box-sizing: border-box;
+  width: 144px;
+  height: 100%;
+  padding:12px 0 0 24px; 
+  background-color: #d6d8db;
+}
+.sv-section {
+  margin-left: 144px;
+  padding: 12px;
+  width: 100%;
+  height: 100%;
+
+}
+.sv-footer {
+  position: relative;
+  bottom: 0;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 24px;
+  color: #e9ecef;
+  background-color: #343a40;
+}
+
+.sv-dropdown {
+  font-size: 1.5rem;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+.sv-dropdown-item {
+  position: absolute;
+  top: 0;
+  left:120px;
+  display: none;
+  min-width: 160px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.sv-dropdown-item a {
+  display: block;
+  padding: 6px 12px;
+  color: black;
+}
+.sv-dropdown-item a:hover {
+  color: black;
+  text-decoration: none;
+  background-color: #f1f1f1
+}
+
+
+.sv-dropdown:hover .sv-dropdown-item{
+  display: block;
+}
+
+
+
+.sv-header > a {
+  color: black;
+}
+.sv-header > a:hover {
+  color: darkgreen;
+  text-decoration: none;
+}
+.sv-header > a > p {
+  font-size: 2rem;
+}
+
+nav > ul > li {
+  padding: 0 12px;
+  display: inline-block;
+  list-style: none;
+}
