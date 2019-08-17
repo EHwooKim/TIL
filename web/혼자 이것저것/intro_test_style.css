@@ -8,6 +8,7 @@
 }
 
 .card  {
+  position: relative;
   margin:10px;
   height: 200px;
   width: 200px;
@@ -19,11 +20,13 @@
   -webkit-transform: scale(1);
 	transform: scale(1);
 	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+
 }
-.card:hover{
-  -webkit-transform: scale(2);
-  transform: scale(2);
+
+.card:hover {
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
   z-index: 1000;
-  font-size: 3rem;
+  font-size: 2rem;
 }

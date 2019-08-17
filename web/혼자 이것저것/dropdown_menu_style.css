@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+}
+nav, .nav-menu, .nav-menu-listm .nav-content, .nav-content-list {
+  box-sizing: border-box;
+}
+
+nav {
+  position: relative;
+  height: 48px;
+  background-color: rgb(137, 155, 50);
+}
+
+.nav-menu {
+  height: 100%;
+  padding: 0 300px;
+}
+.nav-menu-list {
+  font-size: 1.5rem;
+  padding: 4px 36px;
+  display: inline-block;
+  color: aliceblue;
+  cursor: pointer;
+}
+.nav-content {
+  padding: 0 300px;
+  position: absolute;
+  display: none;
+  top: 100%;
+  height: 120px;
+  width: 100%;
+  background-color: rgb(224, 239, 155);
+}
+.nav-content-list {
+  height: 100%;
+  width: 120px;
+  margin-right: 36px;
+  padding-left: 36px;
+  display: inline-block;
+}
+.nav-content-list a{
+  text-decoration: none;
+  margin-top: 6px;
+  color:black;
+  display: block;
+}
+nav:hover .nav-content {
+  display: block;
+}
+
+div{
+  /* 색상모음 */
+  color: rgb(241, 249, 198);
+  color: rgb(224, 239, 155);
+  color: rgb(137, 155, 50);
+  color: rgb(101, 118, 18);
+}
