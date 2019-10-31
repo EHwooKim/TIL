@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo</title>
+    <style>
+        body {
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <h2 id="time"></h2>
+    <form action="" id='form'>
+        <label for="input">할 일을 입력하세요</label>
+        <input type="text" id="input">
+        <button id='input-button' type="submit">+</button>
+    </form>
+
+    <ul id="todo-list">
+    </ul>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    const form = document.querySelector('#form')
+    // const inputButton = document.querySelector('#input-button')
+    const todoList = document.querySelector('#todo-list')
+    const input = document.querySelector('#input')
+
+    axios.get('https://source.unsplash.com/1920x1080/?nature,water')
+        .then(response => {
+            imgUrl = response.request.responseURL
+            console.log(imgUrl,'이거이거')
+            document.body.style.backgroundImage = `url(${imgUrl})`
+            document.body.style.backgroundSize = 'auto'
+            // document.body.style.backgroundPosition = 'center'
+            document.body.style.backgroundRepeat = 'no-repeat'
+        })
+    document.body.style.color='white'
+    document.body.style.textAlign='center'    
+    
+    form.addEventListener('submit', function(event) {
+        // form의 기본적인 action 활동을 막는 코드
+        event.preventDefault()
+        if (input.value){
+            const todo = document.createElement('li')
+            const deleteButton = document.createElement('button')
+            todo.innerText = input.value  // 이렇게 위에서 querySelector로 받아와도 되고
+            // 이렇게 어떤 하나의 기준으로 선택할 수도 있다.
+            // console.log(event.target.previousElementSibling.value)  // event.target : 이벤트가 발생한 대상            
+            deleteButton.innerText = '-'
+            deleteButton.style.marginLeft = '20px'
+            deleteButton.addEventListener('click', function(event) {
+                todo.remove()
+            })
+            todoList.appendChild(todo)
+            todo.appendChild(deleteButton)
+            input.value = ''
+        } else {
+            alert('내용을 입력해야 추가를 하지!')
+        }
+        
+    })
+
+    function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+    }
+
+    function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    // add a zero in front of numbers<10
+    m = checkTime(m);
+    s = checkTime(s);   
+    document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+    t = setTimeout(function() {
+        startTime()
+    }, 500);
+    }
+    startTime();
+</script>
+</body>
+</html>
