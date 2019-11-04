@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"> 
+    {{ todos }} <hr>
+    <!--
+      디렉티브
+      v-for : 반복문
+      v-if : 조건문
+      같이 작성을 하게 되면, 매 반복에 if를 체크 (우선순위 체크!)
+    -->
+    <!-- src 같은 속성값에 {{}} 으로 넣고 싶다면 디렉티브 선언해야한다! -->
+    <img v-bind:src="logo" alt="todo" width="300px" >
+    <li v-for="todo in todos" v-if="!todo.completed" v-on:click="toggleCompleted(todo)">
+      {{ todo.content }}  
+    </li>
+    <li v-else v-on:click="toggleCompleted(todo)">[완료!]</li>
+  </div>
+
+
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        logo: 'https://repository-images.githubusercontent.com/105165445/b8efdd00-5d13-11e9-902e-3ce3c3d7e548',
+        todos: [
+          {
+            content: '수업 열심히 듣기',
+            completed: true
+          },
+          { content: '집에 빠르게 가기',
+            completed: false
+          },
+          { content: '밥 먹기',
+            completed: false
+          },
+          { content: '롤 하기',
+            completed: false
+          }
+        ]
+      },
+      methods: {
+        toggleCompleted: function(todo) {
+            todo.completed = !todo.completed
+        }
+      }
+    })
+  </script>
+  
+</body>
+</html>

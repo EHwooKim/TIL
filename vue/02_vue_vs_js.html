@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>vue vs js</title>
+</head>
+<body>
+  JS:<input type="text" id="input">
+  <p id="input-value"></p>  
+  
+  <div id="app">
+    Vue:<input type="text" v-model="message">
+    {{message}}
+  </div>
+  
+  <script>
+    // JS로는 이렇게 복잡했지
+    input = document.querySelector('#input')
+    input.addEventListener('keydown', function(evenvt) {
+      console.log(event.target.value)
+      const p = document.querySelector('#input-value')
+      p.innerText = evenvt.target.value
+    })
+    // vue로는 이렇게 간단하다. MVVM이 이렇게 좋습니다.
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: ''
+      }
+    })
+
+
+  </script>
+</body>
+</html>
