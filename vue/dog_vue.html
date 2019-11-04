@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button v-on:click='summonDog()'> 개소환!</button> <span>{{dogCount}}마리</span><br>
+    <img v-for="url in dogUrl" v-bind:src='url' alt="" width='200px' height='200px'>
+  </div>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data: {  // DOM 조작에서는 data가 참으로 중요하다!!
+        dogUrl: [],
+        dogCount: 0
+      },
+      methods : {
+        summonDog: function() {  // 이놈을 arrow으로 해버리면 이 놈의 상위는 window가 되어버려
+          console.log('click')
+          axios.get('https://dog.ceo/api/breeds/image/random')
+            .then(response => {    // 이 부분을 arrow func이 아닌 function()으로 해버리면 this 가 window로 잡혀버린다..
+              this.dogUrl.push(response.data.message)
+              this.dogCount++
+          })
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>
