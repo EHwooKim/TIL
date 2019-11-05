@@ -13,8 +13,9 @@
     <!-- 반복문 돌려서 li 태그로 이름 출력
       for
         if (같은 라인, 우선순위가 for가 높음)
+      * 반복문 시행시 항상 key를 유니크하게 설정할 것!!! (일반적으로 Date)
     -->
-    <li v-for="member in members" v-if="member.gender === 'M'"> 이병 {{member.name}} </li>
+    <li v-for="member in members" v-if="member.gender === 'M'" :key="member.id"> 이병 {{member.name}} </li>
     <li v-else>{{member.name}}</li>
     <!-- v-model
         data 내에 초기화가 반드시 필요!!!! ( 아직 내용 없다고 초기화 없이 쓰면 오류난다. )
@@ -54,9 +55,9 @@
         message: 'Hello',    // app.message
         myTag : '<h2>우왕</h2><span>신기하잖아</span>',
         members: [
-          {name: '경호', gender: 'M'},
-          {name: '은비', gender: 'F'},
-          {name: '태우', gender: 'M'}
+          {id:1, name: '경호', gender: 'M'},
+          {id:2, name: '은비', gender: 'F'},
+          {id:3, name: '태우', gender: 'M'}
         ],
         userText: '',
         counter: 0
@@ -75,6 +76,17 @@
       computed: {
         dateComputed() {
           return new Date()
+        }
+      },
+      mounted: function() {
+        console.log('처음 실행시 함수를 실행합니다!')
+      },
+      watch: {
+        message: {
+          handler: function() {
+            console.log('메세지 값이 변경되면 함수를 실행합니다!')  //app.message = 'dk'로 message내용 바꿔보면 실행되더라
+          },
+          // deep: true // nasted object (중첩된 오브젝트의 변경사항까지도 추적)
         }
       }
     })

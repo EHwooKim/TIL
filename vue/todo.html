@@ -38,7 +38,7 @@
     <!-- 클래스 바인딩 : 적용한다 안한다를 true, false로 적용-->
     <h1 @click="changeColor" :class="{blue: isBlue, red: !isBlue}">누군가의 투두</h1>
     <!-- 스타일 바인딩 : 해당 속성을 변수?로 넘겨서 적용-->
-    <h1 :style="{color:color, 'font-size':font}">누군가의 투두</h1>
+    <h1 :style="{color:color, 'font-size':font}">{{ time }}</h1>
     <!-- src 같은 속성값에 {{}} 으로 넣고 싶다면 디렉티브 선언해야한다! -->    
     <img v-bind:src="logo" alt="todo" width="500px"> <br>
 
@@ -72,6 +72,7 @@
     const app = new Vue({
       el:'#app',
       data:{
+        time: '',
         color: 'green',
         font: '50px',
         isBlue: true,
@@ -109,6 +110,10 @@
             return !todo.completed
           })
         },
+        updateTime() {
+          const date = new Date()
+          this.time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+        }
       },
       computed: {   // 원래 methods에 있던 todosByStatus를 computed로 옮겼다! '!!!!' 출력되는 그거때문에 그러고나서 함수를 넘겼지만 computed는 계산된 속성이라 v-for에서 괄호 지운다.
         todosByStatus() {
@@ -136,7 +141,13 @@
       },
       mounted: function() {  // mount 될 때. Vue instance 가 app을 잡을 때!
         console.log('아침이 되었습니다.')
+        // 현재시간을 출력
+        this.updateTime()
         this.todos = todoStorage.fetch()  // loacStorage에서 vue-todo지우고 todo 추가하려고 하면 이미 mount할 때 null이 들어간 상태라 추가가 안된다.
+        this.$options.myInterval = setInterval(this.updateTime, 1000) // 몇초마다 실행
+      },
+      beforeDestroy: function() {
+        clearInterval(this.$options.myInterval) // 종료하는...?
       }
     })
   </script>
