@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue_directive</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 반복문 돌려서 li 태그로 이름 출력
+      for
+        if (같은 라인, 우선순위가 for가 높음)
+    -->
+    <li v-for="member in members" v-if="member.gender === 'M'"> 이병 {{member.name}} </li>
+    <li v-else>{{member.name}}</li>
+    <!-- v-model
+        data 내에 초기화가 반드시 필요!!!! ( 아직 내용 없다고 초기화 없이 쓰면 오류난다. )
+    -->
+    <input type="text" v-model="userText">
+    {{userText}}
+    <!-- 속성값 : v-bind -->
+    <img v-bind:src="url" width=200px;>
+    <img :src="url" width=200px;> <!-- shorthand -->
+    <!--  -->
+    <p>{{counter}}</p>
+    <button v-on:click="countUp">++++++</button>
+    <button @click="countDown">------</button>
+    <!-- computed vs methods -->
+    <h2>methods : {{ dateMethods() }}</h2>  <!-- 함수를 실행. // 이거는 내가 얘랑 상관없는 어떤 데이터를 변화 시킬 때마다 바뀐다.-->
+    <h2>conputed : {{ dateComputed }}</h2>  <!-- 인자로 함수를 넘기지만, 함수의 실행결과를 계산된(computed) 변수의 값으로 저장.-->
+    <!-- v-text. shortcut: 중괄호 출력-->
+    <h3 v-text="message"></h3>
+    <h3>{{ message }}</h3>
+    <!-- html -->
+    {{ myTag }}
+    <span v-html="myTag"></span>
+    <!-- v-show -->
+    <p v-show="false"> 이것은 보이나요. </p> <!-- 렌더링은 하는데 css로 보이지 않게 함.(개발자도구 확인)-->
+    <p v-show="true"> 이것은 보이나요. </p>
+    <p v-if="false"> 태우 바보 </p>   <!-- 렌더링 자체를 하지 않음. -->
+    
+
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {   //app.$data
+        
+        url : 'https://images.velog.io/post-images/ashnamuh/71316b70-9948-11e9-9406-b5826f0adafc/vueblog.png',
+        message: 'Hello',    // app.message
+        myTag : '<h2>우왕</h2><span>신기하잖아</span>',
+        members: [
+          {name: '경호', gender: 'M'},
+          {name: '은비', gender: 'F'},
+          {name: '태우', gender: 'M'}
+        ],
+        userText: '',
+        counter: 0
+      },
+      methods: {
+        countUp: function() {
+          this.counter++
+        },
+        countDown: function() {
+          this.counter--
+        },
+        dateMethods() {
+          return new Date()
+        }
+      },
+      computed: {
+        dateComputed() {
+          return new Date()
+        }
+      }
+    })
+  </script>
+</body>
+</html>
