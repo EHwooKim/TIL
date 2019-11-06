@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input v-model.trim="message" type="text"><br> <!-- trim : 앞뒤 공백 무시 -->
+    <input v-model.number="number" type="number" ><br> <!-- v-model="number" 이렇게만하면 숫자가 문자로 인식된다. v-model.number로 해주면 숫자로 인식 -->
+    <select v-model="jiwoo.pokemon">
+      <option value="꼬부기">꼬부기</option> <!-- select로 넘겨주는 값은 꼬부기가 아니라 value값인 1이다. -->
+      <option value="이상해씨">이상해씨</option>
+      <option value="파이리">파이리</option>
+    </select><br>
+    <input v-model="checked" type="checkbox"><br>
+    <label for="water">물: </label>
+    <input v-model="type" value="water" type="radio" id="water">
+    <label for="fire">불: </label>
+    <input v-model="type" value="fire" type="radio" id="fire">
+    <label for="green">풀: </label>
+    <input v-model="type" value="green" type="radio" id="green">
+  </div>
+
+  <script>
+    const app = new Vue ({
+      el: '#app',
+      data: {
+        jiwoo: {
+          pokemon: ''
+        },
+        message: '',
+        number: 0,
+        select: '',
+        checked: false,
+        type: ''
+      }
+    })
+  </script>
+</body>
+</html>

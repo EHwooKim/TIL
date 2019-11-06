@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
   <title>Document</title>
   <style>
+  body {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+  }
   #app {
     text-align: center;
     margin-top: 100px;
@@ -19,10 +25,13 @@
     text-decoration-line: line-through;
   }
   .blue {
-    color: blue;
+    color: rgb(206, 206, 255);
   }
   .red {
-    color: red;
+    color: rgb(255, 234, 234);
+  }
+  .fontShadow {
+    text-shadow: 0 0 100px rgb(255, 23, 23)
   }
   </style>
 
@@ -36,11 +45,12 @@
       같이 작성을 하게 되면, 매 반복에 if를 체크 (우선순위 체크!)
     -->
     <!-- 클래스 바인딩 : 적용한다 안한다를 true, false로 적용-->
-    <h1 @click="changeColor" :class="{blue: isBlue, red: !isBlue}">누군가의 투두</h1>
+    <h1 @click="changeColor" class="fontShadow" :class="{blue: !isBlue, red: isBlue}" style="font-family:Nunito; font-size:100px; font-weight: 10;">Todo List</h1>
     <!-- 스타일 바인딩 : 해당 속성을 변수?로 넘겨서 적용-->
     <h1 :style="{color:color, 'font-size':font}">{{ time }}</h1>
     <!-- src 같은 속성값에 {{}} 으로 넣고 싶다면 디렉티브 선언해야한다! -->    
-    <img v-bind:src="logo" alt="todo" width="500px"> <br>
+
+    <!-- <img v-bind:src="logo" alt="todo" width="500px"> <br> -->
 
     <button @click="completeAll" >모두완료</button>
     <button @click="deleteAll">모두삭제</button>
