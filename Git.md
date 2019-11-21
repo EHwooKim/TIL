@@ -5,8 +5,12 @@
 * Window에서 `Git`을 사용하기 위해서는 `Git bash`를 반드시 설치해야 함.
 
 * 참고자료
+
 * [Git Scm](https://git-scm.com/book/ko/v2) //*대괄호로 문자, 소괄호로 링크
+
 * [누구나 쉽게 이해할 수 있는 Git](https://backlog.com/git-tutorial/kr/)
+
+  
 
 ## Git 기본 명령어(로컬)
 
@@ -160,3 +164,84 @@ profile.jpg  # profile.jpg 파일
 
 
 
+## git add 삭제
+
+` git rm -r --cached '이름' `
+
+## commit message 변경
+
+`git commit --amend` -> `수정 후 ` -> `esc, :wq`
+
+
+
+
+
+## 각종 오류 해결법
+
+1. 특정 파일을 커밋 이력에서 삭제하고 싶다. 다만 파일은 유지하고 싶을 때 
+
+   예) db.sqlite3가 이미 커밋이 되어 버림 (내가 pjt10 하면서 DB충돌 냈을 때)
+
+   ```bash
+   $ git rm --cached db.sqlite3
+   ```
+
+   위의 명령어를 작성하고, `.gitignore`에 `sqlite3` 등록
+
+2. unstage하는 법 (WD에서 staging area에 잘못 올렸을 때)
+
+   ```bash
+   $ git reset HEAD b.tt
+   ```
+
+3. 커밋 메세지 수정
+
+   ```bash
+   $ git commit --amend
+   ```
+
+   > :warning: 수정하면 commit이력이 변하니까 push전에만 해야한다.
+
+   ```bash
+   $ git push -f origin master
+   ```
+
+   > 를 사용해서 덮어씌울 수는 있는데 협업시 이렇게 이력 바꾸는건 위험하니 쓰지말자.
+
+4. 이미 commit을 한 생태에서 추가 파일을 `같이` commit하고 싶을 때
+
+   ```bash
+   $ git add a.txt
+   $ git commit -m 'add a'
+   // 이때 b.txt도 같이 commit하고 싶다
+   $ git add b.txt
+   $ git commit --amend
+   ```
+
+   > add 를 하나 더 한 상태에서 commit을 다시 하는거라 이전 commit에 포함되게 된다. (push 전에만 되겠지)
+
+5. 모든 상세이력 확인하기
+
+   ```bash
+   $ git reflog
+   ```
+
+6. pull을 받을 때 ''~하거나 commit하거나 해라 ''같은 경고문이 뜰 때
+
+   * commit 을 해서 commit 이력을 남겨도 되지만 또 다른 임시 공간을 활용할 수 있는데
+
+     ```bash
+     $ git stash
+     ```
+
+     > 작업하던 내역을 임시 공간에 넣어놓는 방법이다. 꺼내는 방법은 $ git stash pop
+
+7. WD에 있는 것을 이전 commit으로 돌리는 방법
+
+   ```bash
+   $ git checkout -- '파일명'
+   ```
+   
+   
+   
+   
